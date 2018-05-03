@@ -11,6 +11,7 @@ import { GotHouse } from './got-house';
 })
 export class HousesTableComponent implements OnInit {
 
+  displayedColumns = [ 'name', 'region', 'words', 'currentLord', 'heir' ];
   houses: Array<GotHouse> = new Array<GotHouse>();  
 
   constructor(private gotService: GotService) { }
@@ -18,8 +19,10 @@ export class HousesTableComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.gotService.getGotHouses()
-      .subscribe(data => { this.houses = data}, 
+    this.gotService.getGotHouses()      
+      .subscribe(data => {         
+        this.houses = data        
+      }, 
         error => console.log(error) 
     );
 
