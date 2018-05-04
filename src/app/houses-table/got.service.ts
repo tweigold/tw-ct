@@ -10,7 +10,7 @@ export class GotService {
 
   constructor(private http: HttpClient) { }
 
-   getGotHouses(){
+   getGotHouses():Observable<Array<GotHouse>>{
       return this.http.get<Array<GotHouse>>(`${environment.serviceUrl}got-houses`);
    }
 
