@@ -1,15 +1,38 @@
+.table-container {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;  
+
+  @media screen and (max-width: 600px) {
+    width:95%;
+    margin: auto;
+  }
+}
+
+form {
+  text-align: left;
+
+  label {
+    color: white;
+    font-weight: bold;
+  }
+
+  input {
+    width: 20%;
+  
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
+  }
+  
+}
+
 table { 
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2rem;
-    table-layout: fixed;
+
     background-color: white;
 
     @media screen and (max-width: 600px) {
-        width:95%;
-        margin: auto;
-
         thead {
           border: none;
           clip: rect(0 0 0 0);

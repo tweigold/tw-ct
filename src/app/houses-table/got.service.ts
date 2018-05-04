@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { environment } from '../../environments/environment';
 import {Observable} from 'rxjs/Observable';
 import { GotHouse } from './got-house';
 
 @Injectable()
-export class GotService {
-
-  private baseUrl: string = 'https://7gc5dwdtf3.execute-api.us-east-2.amazonaws.com/dev/';
+export class GotService {  
 
   constructor(private http: HttpClient) { }
 
    getGotHouses(){
-      return this.http.get<Array<GotHouse>>(`${this.baseUrl}got-houses`);
+      return this.http.get<Array<GotHouse>>(`${environment.serviceUrl}got-houses`);
    }
 
 }

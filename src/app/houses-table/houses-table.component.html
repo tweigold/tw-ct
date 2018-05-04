@@ -1,25 +1,26 @@
-<!-- <div class="example-header">
-  <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  </mat-form-field>
-</div> -->
-
-
-<table class="table table-hover table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Region</th>
-      <th scope="col">Coat Of Arms</th>
-      <th scope="col">Words</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let house of houses">      
-      <td data-label="Name">{{ house.name }}</td>
-      <td data-label="Region">{{ house.region }}</td>
-      <td data-label="Coat Of Arms">{{ house.coatOfArms }}</td>
-      <td data-label="Words">{{ house.words }}</td>
-    </tr>
-</table>
+<div class="table-container">
+  <form>
+    <div class="form-group">
+      <label for="searchText">Search</label>
+      <input id="searchText" class="form-control" type="text" [(ngModel)]="term" name="search" placeholder="search">
+    </div>
+  </form>
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Region</th>
+        <th scope="col">Coat Of Arms</th>
+        <th scope="col">Words</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let house of houses | filter: term">      
+        <td data-label="Name">{{ house.name }}</td>
+        <td data-label="Region">{{ house.region }}</td>
+        <td data-label="Coat Of Arms">{{ house.coatOfArms }}</td>
+        <td data-label="Words">{{ house.words }}</td>
+      </tr>
+  </table>
+</div>
 
