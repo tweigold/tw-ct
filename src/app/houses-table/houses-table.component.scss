@@ -1,7 +1,10 @@
 table { 
     width: 70%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
     table-layout: fixed;
+    background-color: white;
 
     @media screen and (max-width: 600px) {
         width:95%;
@@ -27,17 +30,15 @@ table {
           border-bottom: 1px solid #ddd;
           display: block;
           text-align: right;
-          min-height: 1px;         
-          padding-left: 50px;          
+          min-height: 1px;                   
+          overflow: hidden;                    
         }
 
-        td:empty {
-            border: 1px solid blue
-        }
-        
         td::before {
           content: attr(data-label);
-          float: left;                   
+          float: left;
+          font-weight: bold;                   
+          margin-right: 60px;
         }
     }
 } 

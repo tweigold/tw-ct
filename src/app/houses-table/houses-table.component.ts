@@ -16,13 +16,34 @@ export class HousesTableComponent implements OnInit {
   constructor(private gotService: GotService) { }
 
 
-    ngOnInit(): void {
+  ngOnInit(): void {
 
     this.gotService.getGotHouses()
       .subscribe((data) => {
         this.houses = data
+        this.sort(true, 'name');
       },       
        err => console.error('Request failed.')
       );
+  }
+
+  sort(asc: boolean, field: string):void {
+    this.houses.sort((obj1:GotHouse, obj2:GotHouse): number =>{
+      let result : number = 0;
+      if(obj1[field] < obj2[field]){
+        result = -1;
+      }
+
+      if(obj1[field] > obj2[field]){
+        result = 1;
+      }
+
+      if(!asc){
+        result = result * -1;
+      }
+
+      return result;
+
+    })
   }
 }
