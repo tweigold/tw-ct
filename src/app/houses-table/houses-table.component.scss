@@ -1,0 +1,45 @@
+table { 
+    width: 70%;
+    margin: auto;
+    table-layout: fixed;
+
+    @media screen and (max-width: 600px) {
+        width:95%;
+        margin: auto;
+
+        thead {
+          border: none;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          width: 1px;
+        }
+       
+       tr {
+          border-bottom: 3px solid #ddd;
+          display: block;                    
+        }
+        
+        td {
+          border-bottom: 1px solid #ddd;
+          display: block;
+          text-align: right;
+          min-height: 1px;         
+          padding-left: 50px;          
+        }
+
+        td:empty {
+            border: 1px solid blue
+        }
+        
+        td::before {
+          content: attr(data-label);
+          float: left;                   
+        }
+    }
+} 
+  
+

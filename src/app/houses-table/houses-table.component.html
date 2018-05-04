@@ -1,36 +1,25 @@
-<div class="example-header">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
-  </div>
+<!-- <div class="example-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div> -->
 
-<mat-table #table [dataSource]="houses">
-    
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-        <mat-cell *matCellDef="let gotHouse"> {{gotHouse.name}} </mat-cell>
-      </ng-container>
-  
-      <ng-container matColumnDef="region">
-        <mat-header-cell *matHeaderCellDef> Region </mat-header-cell>
-        <mat-cell *matCellDef="let gotHouse"> {{gotHouse.region}} </mat-cell>
-      </ng-container>
-  
-      <ng-container matColumnDef="words">
-        <mat-header-cell *matHeaderCellDef> Words </mat-header-cell>
-        <mat-cell *matCellDef="let gotHouse"> {{gotHouse.words}} </mat-cell>
-      </ng-container>
 
-      <ng-container matColumnDef="currentLord">
-        <mat-header-cell *matHeaderCellDef> Current Lord </mat-header-cell>
-        <mat-cell *matCellDef="let gotHouse"> {{gotHouse.currentLord}} </mat-cell>
-      </ng-container>
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Region</th>
+      <th scope="col">Coat Of Arms</th>
+      <th scope="col">Words</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let house of houses">      
+      <td data-label="Name">{{ house.name }}</td>
+      <td data-label="Region">{{ house.region }}</td>
+      <td data-label="Coat Of Arms">{{ house.coatOfArms }}</td>
+      <td data-label="Words">{{ house.words }}</td>
+    </tr>
+</table>
 
-      <ng-container matColumnDef="heir">
-        <mat-header-cell *matHeaderCellDef> Heir </mat-header-cell>
-        <mat-cell *matCellDef="let gotHouse"> {{gotHouse.heir}} </mat-cell>
-      </ng-container>
-  
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>

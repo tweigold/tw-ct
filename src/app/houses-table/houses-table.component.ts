@@ -7,25 +7,22 @@ import { GotHouse } from './got-house';
 @Component({
   selector: 'app-houses-table',
   templateUrl: './houses-table.component.html',
-  styleUrls: ['./houses-table.component.css']
+  styleUrls: ['./houses-table.component.scss']
 })
 export class HousesTableComponent implements OnInit {
 
-  displayedColumns = [ 'name', 'region', 'words', 'currentLord', 'heir' ];
-  houses: Array<GotHouse> = new Array<GotHouse>();  
+  houses = new Array<GotHouse>();
 
   constructor(private gotService: GotService) { }
 
 
-  ngOnInit(): void {
+    ngOnInit(): void {
 
-    this.gotService.getGotHouses()      
-      .subscribe(data => {         
-        this.houses = data        
-      }, 
-        error => console.log(error) 
-    );
-
+    this.gotService.getGotHouses()
+      .subscribe((data) => {
+        this.houses = data
+      },       
+       err => console.error('Request failed.')
+      );
   }
-
 }
